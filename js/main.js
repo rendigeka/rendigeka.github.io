@@ -80,7 +80,7 @@ function allTeams(data) {
   });
 };
  
-var dbPromise = idb.open('pwa2-teams', 1, upgradeDb => {
+var dbPromise = idb.open('pwa3-teams', 1, upgradeDb => {
   switch (upgradeDb.oldVersion) {
     case 0:
       upgradeDb.createObjectStore('teams', { 'keyPath': 'id' })
@@ -104,7 +104,7 @@ function getFavoriteTeams() {
       <div class="col s12 m6">
       <div class="card">
       <div class="card-content">
-        <div class="center"><img width="64" height="64" src="${team.crestUrl}"></div>
+        <div class="center"><img width="64" height="64" src="${team.crestUrl || 'asset/empty.svg'}"></div>
         <div class="center flow-text">${team.name}</div>
         <div class="center">${team.area.name}</div>
         <div class="center">${team.founded}</div>
@@ -140,7 +140,7 @@ function insertTeam(team) {
     store.put(team)
     return tx.complete;
   }).then(function() {
-    M.toast({ html: `${team.name} berhasil disimpan!`})
+    M.toast({ html: `<i class="material-icons left">check_circle</i>${team.name} berhasil disimpan`, classes: 'rounded'})
   }).catch(err => {
     console.error('Error', err);
   });
@@ -161,7 +161,7 @@ function deleteTeam(teamId) {
     store.delete(teamId);
     return tx.complete;
   }).then(function() {
-    M.toast({ html: `Tim berhasil dihapus`});
+    M.toast({ html: '<i class="material-icons left">check_circle</i>Tim berhasil dihapus', classes: 'rounded'});
     // if (Notification.permission === 'granted') {
     //    navigator.serviceWorker.ready.then(function(registration) {
     //      registration.showNotification("Tim berhasil dihapus");
