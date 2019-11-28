@@ -4,7 +4,7 @@ self.addEventListener('push', function(event) {
     body = event.data.text();
   } else {
     body = 'payload kosong';
-  }
+  };
   var options = {
     badge: 'asset/i-icon.png',
     icon: 'asset/g-icon.png',
@@ -28,7 +28,7 @@ self.addEventListener('notificationclick', event => {
 
   if (action === 'close') {
     notification.close();
-  }
+  };
 });
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');  
@@ -38,6 +38,7 @@ if (workbox){
     { url: '/', revision: '1' },
     { url: '/index.html', revision: '1' },
     { url: '/manifest.json', revision: '1' },
+    { url: '/asset/empty.svg', revision: '1' },
     { url: '/asset/i-icon.png', revision: '1' },
     { url: '/asset/g-icon.png', revision: '1' },
     { url: '/asset/icon-192.png', revision: '1' },
@@ -61,7 +62,7 @@ if (workbox){
   workbox.routing.registerRoute(
     /.*(?:png|gif|jpg|jpeg|svg)$/,
     workbox.strategies.cacheFirst({
-      cacheName: 'pwa2-image-cache',
+      cacheName: 'pwa3-image-cache',
       plugins: [
         new workbox.cacheableResponse.Plugin({
           statuses: [0, 200]
@@ -78,4 +79,4 @@ if (workbox){
 }
 else {
   console.log('[Workbox] gagal dimuat');
-}
+};
