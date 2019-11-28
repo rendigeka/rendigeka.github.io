@@ -1,0 +1,22 @@
+{
+    "name": "Premier League Information",
+    "short_name": "Premier League",
+    "description": "PWA Submission 2",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#795548",
+    "theme_color": "#795548",
+    "icons": [
+    {
+        "src": "asset/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "asset/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+    ],
+    "gcm_sender_id": "1000625962734"
+}
