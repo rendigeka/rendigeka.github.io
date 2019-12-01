@@ -1,4 +1,4 @@
-function standingTeams(data) {
+8function standingTeams(data) {
   var html = '';
   var content = '';
   var str = JSON.stringify(data).replace(/http:/g, 'https:');
@@ -75,7 +75,7 @@ function allTeams(data) {
   dataDB.then(data => {
     for (team of data) {
       document.getElementById(team.id).classList.add("disabled");
-      document.getElementById(team.id).innerHTML = `<i class="material-icons left">star</i>Favorit Anda`;
+      document.getElementById(team.id).innerHTML = `<i class="material-icons">star</i>Favorit Anda`;
     }
   });
 };
@@ -113,7 +113,7 @@ function getFavoriteTeams() {
       </div>
       <div class="card-action right-align">
         <a class="waves-effect waves-light btn-small red" onclick="deleteTeamListener(${team.id})">
-          <i class="material-icons left">delete</i>Hapus</a>
+          <i class="material-icons">delete</i>Hapus</a>
       </div>
       </div>
       </div>`;
@@ -140,7 +140,7 @@ function insertTeam(team) {
     store.put(team)
     return tx.complete;
   }).then(function() {
-    M.toast({ html: `<i class="material-icons left">check_circle</i>${team.name} berhasil disimpan`, classes: 'rounded'})
+    M.toast({ html: `<i class="material-icons">check_circle</i>${team.name} berhasil disimpan`, classes: 'rounded'})
   }).catch(err => {
     console.error('Error', err);
   });
@@ -161,7 +161,7 @@ function deleteTeam(teamId) {
     store.delete(teamId);
     return tx.complete;
   }).then(function() {
-    M.toast({ html: '<i class="material-icons left">check_circle</i>Tim berhasil dihapus', classes: 'rounded'});
+    M.toast({ html: '<i class="material-icons">check_circle</i>Tim berhasil dihapus', classes: 'rounded'});
     // if (Notification.permission === 'granted') {
     //    navigator.serviceWorker.ready.then(function(registration) {
     //      registration.showNotification("Tim berhasil dihapus");
