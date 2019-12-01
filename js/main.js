@@ -1,4 +1,4 @@
-8function standingTeams(data) {
+function standingTeams(data) {
   var html = '';
   var content = '';
   var str = JSON.stringify(data).replace(/http:/g, 'https:');
